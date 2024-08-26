@@ -8,10 +8,10 @@ return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
 	use {
-	'nvim-telescope/telescope.nvim', tag = '0.1.2',
-	-- or                            , branch = '0.1.x',
-	requires = { {'nvim-lua/plenary.nvim'} }
-	  }
+		'nvim-telescope/telescope.nvim', tag = '0.1.2',
+		-- or                            , branch = '0.1.x',
+		requires = { {'nvim-lua/plenary.nvim'} }
+	}
 
 	-- Color Scheme
 	use({ 'rose-pine/neovim', as = 'rose-pine' })
@@ -44,4 +44,46 @@ return require('packer').startup(function(use)
 	-- Lua snippets
 	use('L3MON4D3/LuaSnip')
 	use('saadparwaiz1/cmp_luasnip')
-  end)
+
+	use( {
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	})
+
+	use {
+		'VonHeikemen/lsp-zero.nvim',
+		branch = 'v3.x',
+		requires = {
+			--- Uncomment the two plugins below if you want to manage the language servers from neovim
+			{'williamboman/mason.nvim'},
+			{'williamboman/mason-lspconfig.nvim'},
+
+			{'neovim/nvim-lspconfig'},
+			{'hrsh7th/nvim-cmp'},
+			{'hrsh7th/cmp-nvim-lsp'},
+			{'L3MON4D3/LuaSnip'},
+		}
+	}
+
+	use { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' }
+
+	use { "rebelot/kanagawa.nvim" }
+
+	use {
+		'numToStr/Comment.nvim',
+		config = function()
+			require('Comment').setup()
+		end
+	}
+
+	use {
+    'akinsho/flutter-tools.nvim',
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        'stevearc/dressing.nvim',
+    },
+    config = true,
+}
+end)

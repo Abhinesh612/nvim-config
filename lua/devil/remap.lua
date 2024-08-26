@@ -20,8 +20,11 @@ vim.keymap.set("v", "p", '"_dp')
 vim.keymap.set("v", "<leader>y", '"+y')
 
 local set = vim.opt -- set options
-set.tabstop = 4
-set.softtabstop = 4
-set.shiftwidth = 4
+set.tabstop        = 4
+set.softtabstop    = 4
+set.shiftwidth     = 4
 set.relativenumber = true
-set.scrolloff = 7
+set.scrolloff      = 7
+set.splitbelow     = true
+set.splitright     = true
+set.mouse		   = 'n'
